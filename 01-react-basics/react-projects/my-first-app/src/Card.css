@@ -1,0 +1,23 @@
+.card {
+    max-width: 400px;
+    box-shadow: 0 0.5rem 1rem rgba(224, 221, 221, 0.15);
+    padding: 1rem;
+    border-radius: "5px";
+    text-align: left;
+    margin: 1rem;
+    background: transparent;
+}
+
+.card-header {
+    max-width: 400px;
+    padding: 1rem;
+    border-radius: "5px";
+    color: #61adf6;
+    font-size: 2.5rem;
+}
+
+.card-body {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+}

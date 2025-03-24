@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "img": "img-1",
+    "fullName": "John Doe",
+    "jobTile": "Senior Developer",
+    "twitterHandle": "@johndoe",
+    "text": "Lorem ipsum"
+  },
+  {
+    "id": 2,
+    "img": "img-1",
+    "fullName": "John Doe",
+    "jobTile": "Senior Developer",
+    "twitterHandle": "@johndoe",
+    "text": "Lorem ipsum"
+  },
+  {
+    "id": 3,
+    "img": "img-1",
+    "fullName": "John Doe",
+    "jobTile": "Senior Developer",
+    "twitterHandle": "@johndoe",
+    "text": "Lorem ipsum"
+  },
+  {
+    "id": 4,
+    "img": "img-1",
+    "fullName": "John Doe",
+    "jobTile": "Senior Developer",
+    "twitterHandle": "@johndoe",
+    "text": "Lorem ipsum"
+  }
+
+]
