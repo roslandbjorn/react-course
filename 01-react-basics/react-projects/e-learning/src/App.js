@@ -16,6 +16,7 @@ import OffersCard from "./components/page-components/OffersCard";
 import { FaFileDownload, FaMapMarkedAlt } from "react-icons/fa";
 import TestemonialCard from "./components/page-components/TestimonialCard";
 import TestimonialsList from "./components/Lists/TestimonialsList";
+import LoginForm from "./components/page-components/LoginForm";
 
 const offerList = [
   {
@@ -56,6 +57,7 @@ const moreOfferList = [
 function App() {
   const [showCourseModal, setShowCourceModal] = useState(false);
   const [showOffers, setShowOffers] = useState(false);
+  const [forms, setForms] = useState({ loginForm: false });
 
   function handleStartLearningEvent() {
     setShowCourceModal(true);
@@ -69,12 +71,24 @@ function App() {
     setShowOffers(!showOffers);
   }
 
+  function handleShowLoginForm() {
+    setForms({ ...forms, loginForm: true });
+  }
+
+  function handleCancelLoginForm() {
+    setForms({ ...forms, loginForm: false });
+  }
+
   return (
     <>
       {/* <MyList></MyList> */}
       <div className="container container-lg">
         {showCourseModal && (
-          <Modal title={"Modal"} cancelEvent={handleCancelLearningEvent} />
+          <Modal
+            title={"Modal"}
+            cancelEvent={handleCancelLearningEvent}
+            loginEvent={handleShowLoginForm}
+          />
         )}
 
         <Header>
@@ -173,6 +187,11 @@ function App() {
               <TestimonialsList />
             </div>
           </section>
+          {forms.loginForm && (
+            <div className="modal">
+              <LoginForm handleCancel={handleCancelLoginForm} />
+            </div>
+          )}
         </main>
       </div>
     </>
