@@ -58,6 +58,7 @@ function App() {
   const [showCourseModal, setShowCourceModal] = useState(false);
   const [showOffers, setShowOffers] = useState(false);
   const [forms, setForms] = useState({ loginForm: false });
+  const [login, setLogin] = useState(false);
 
   function handleStartLearningEvent() {
     setShowCourceModal(true);
@@ -79,6 +80,12 @@ function App() {
     setForms({ ...forms, loginForm: false });
   }
 
+  function handleLoginFormValidation() {
+    setForms({ ...forms, loginForm: false });
+    setShowCourceModal(false);
+    setLogin(true);
+  }
+
   return (
     <>
       {/* <MyList></MyList> */}
@@ -87,7 +94,7 @@ function App() {
           <Modal
             title={"Modal"}
             cancelEvent={handleCancelLearningEvent}
-            loginEvent={handleShowLoginForm}
+            loginEvent={!login && handleShowLoginForm}
           />
         )}
 
@@ -107,7 +114,11 @@ function App() {
                 text="Try it free 30 days"
                 classes={"btn-primary text-light"}
                 icon={<BsFillSendFill />}
-                onClick={handleStartLearningEvent}
+                onClick={
+                  !login
+                    ? handleStartLearningEvent
+                    : () => alert("You are logged in")
+                }
               />
               <Button classes={"btn-secondary text-light"} text="Learn more" />
             </div>
@@ -190,7 +201,10 @@ function App() {
           {forms.loginForm && (
             <div className="modal">
               <div className=" modal-content fadeIn-2ms">
-                <LoginForm handleCancel={handleCancelLoginForm} />
+                <LoginForm
+                  handleCancel={handleCancelLoginForm}
+                  loggedIn={handleLoginFormValidation}
+                />
               </div>
             </div>
           )}

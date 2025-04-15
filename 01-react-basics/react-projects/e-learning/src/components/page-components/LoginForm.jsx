@@ -3,7 +3,7 @@ import Title from "../Title";
 import Button from "../Button";
 import FormGroup from "./FormGroup";
 
-export default function LoginForm({ handleCancel }) {
+export default function LoginForm({ handleCancel, loggedIn }) {
   // States
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,16 +23,30 @@ export default function LoginForm({ handleCancel }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!passwordRef.current.value) {
-      passwordRef.current.focus();
-    }
+    const event = {
+      id: Math.floor(Math.random() * 1000),
+      email: email,
+      password: password,
+    };
+    console.log(event);
+    validateLoginForm();
+  };
+
+  const resetForm = () => {
+    setEmail("");
+    setPassword("");
+  };
+
+  const validateLoginForm = () => {
+    email === "" && alert("Please enter your email");
+    password.length <= 4 ? alert("Please enter your password") : loggedIn();
   };
 
   // Effects
 
   useEffect(() => {
     emailRef.current.focus();
-  }, [handleSubmit]);
+  }, []);
 
   return (
     <div className="form" style={{ maxWidth: 500 }}>
