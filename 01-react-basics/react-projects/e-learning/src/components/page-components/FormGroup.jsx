@@ -4,6 +4,8 @@ export default function FormGroup({
   label,
   type,
   placeholder,
+  value,
+  onChange,
   disabled = false,
 }) {
   return (
@@ -14,6 +16,8 @@ export default function FormGroup({
         className="form-control"
         placeholder={placeholder}
         disabled={disabled}
+        value={value}
+        onChange={onChange}
       />
     </div>
   );
