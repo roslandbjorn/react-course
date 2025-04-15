@@ -1,6 +1,7 @@
 import React from "react";
 import Title from "../Title";
 import Button from "../Button";
+import FormGroup from "./FormGroup";
 
 export default function LoginForm({ handleCancel }) {
   return (
@@ -8,24 +9,16 @@ export default function LoginForm({ handleCancel }) {
       <Title text="Login" classes={"text-center mb-4"} />
       <h4 className="subtitle">Enter your credentials</h4>
       <form onSubmit={(e) => e.preventDefault()}>
-        <div className="form-group">
-          <label htmlFor="input-email">Email</label>
-          <input
-            id="input-email"
-            type="email"
-            className="form-control"
-            placeholder="Enter your email"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="input-password">Password</label>
-          <input
-            id="input-password"
-            type="password"
-            className="form-control"
-            placeholder="Enter your password"
-          />
-        </div>
+        <FormGroup
+          type={"email"}
+          placeholder={"Enter your email"}
+          label={"Email"}
+        />
+        <FormGroup
+          type={"password"}
+          placeholder={"Enter your password"}
+          label={"Password"}
+        />
         <div className="d-flex space-between">
           <Button classes={"btn-primary"} type={"button"} text={"Login"} />
           <Button
