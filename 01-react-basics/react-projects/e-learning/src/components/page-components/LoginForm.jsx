@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Title from "../Title";
 import Button from "../Button";
 import FormGroup from "./FormGroup";
@@ -8,6 +8,10 @@ export default function LoginForm({ handleCancel }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // References
+  let emailRef = useRef();
+  let passwordRef = useRef();
+
   // Handlers
   const changeEmail = (e) => {
     setEmail(e.target.value);
@@ -16,6 +20,19 @@ export default function LoginForm({ handleCancel }) {
   const changePassword = (e) => {
     setPassword(e.target.value);
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!passwordRef.current.value) {
+      passwordRef.current.focus();
+    }
+  };
+
+  // Effects
+
+  useEffect(() => {
+    emailRef.current.focus();
+  }, [handleSubmit]);
 
   return (
     <div className="form" style={{ maxWidth: 500 }}>
@@ -28,6 +45,7 @@ export default function LoginForm({ handleCancel }) {
           label={"Email"}
           value={email}
           onChange={changeEmail}
+          reference={emailRef}
         />
         <FormGroup
           type={"password"}
@@ -35,9 +53,15 @@ export default function LoginForm({ handleCancel }) {
           label={"Password"}
           value={password}
           onChange={changePassword}
+          reference={passwordRef}
         />
         <div className="d-flex space-between">
-          <Button classes={"btn-primary"} type={"button"} text={"Login"} />
+          <Button
+            classes={"btn-primary"}
+            type={"button"}
+            text={"Login"}
+            onClick={handleSubmit}
+          />
           <Button
             classes={"btn-secondary"}
             type={"button"}

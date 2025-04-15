@@ -6,6 +6,7 @@ export default function FormGroup({
   placeholder,
   value,
   onChange,
+  reference,
   disabled = false,
 }) {
   return (
@@ -18,6 +19,7 @@ export default function FormGroup({
         disabled={disabled}
         value={value}
         onChange={onChange}
+        ref={reference}
       />
     </div>
   );

@@ -189,7 +189,9 @@ function App() {
           </section>
           {forms.loginForm && (
             <div className="modal">
-              <LoginForm handleCancel={handleCancelLoginForm} />
+              <div className=" modal-content fadeIn-2ms">
+                <LoginForm handleCancel={handleCancelLoginForm} />
+              </div>
             </div>
           )}
         </main>
