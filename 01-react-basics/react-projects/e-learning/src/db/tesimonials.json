@@ -2,34 +2,34 @@
   {
     "id": 1,
     "img": "img-1",
-    "fullName": "John Doe",
-    "jobTile": "Senior Developer",
-    "twitterHandle": "@johndoe",
-    "text": "Lorem ipsum"
+    "fullName": "Ava Thompson",
+    "jobTitle": "Lead UX Designer",
+    "twitterHandle": "@avathompson",
+    "text": "Design is intelligence made visible. Love crafting intuitive experiences."
   },
   {
     "id": 2,
-    "img": "img-1",
-    "fullName": "John Doe",
-    "jobTile": "Senior Developer",
-    "twitterHandle": "@johndoe",
-    "text": "Lorem ipsum"
+    "img": "img-2",
+    "fullName": "Carlos Ramirez",
+    "jobTitle": "Backend Engineer",
+    "twitterHandle": "@carloscodes",
+    "text": "Passionate about clean APIs and writing code that scales like magic."
   },
   {
     "id": 3,
-    "img": "img-1",
-    "fullName": "John Doe",
-    "jobTile": "Senior Developer",
-    "twitterHandle": "@johndoe",
-    "text": "Lorem ipsum"
+    "img": "img-3",
+    "fullName": "Maya Lee",
+    "jobTitle": "Product Manager",
+    "twitterHandle": "@mayapm",
+    "text": "Turning chaos into roadmaps. Always listening, always iterating."
   },
   {
     "id": 4,
-    "img": "img-1",
-    "fullName": "John Doe",
-    "jobTile": "Senior Developer",
-    "twitterHandle": "@johndoe",
-    "text": "Lorem ipsum"
+    "img": "img-4",
+    "fullName": "Ethan Brooks",
+    "jobTitle": "Data Scientist",
+    "twitterHandle": "@ethanbrains",
+    "text": "Lover of data, coffee, and terrible puns. Predicting the future, one model at a time."
   }
-
 ]
+

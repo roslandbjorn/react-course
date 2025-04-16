@@ -234,7 +234,6 @@ function App() {
           )}
         </main>
       </div>
-      <ThrowError />
     </>
   );
 }
