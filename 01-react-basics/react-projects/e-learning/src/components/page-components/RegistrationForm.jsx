@@ -3,7 +3,11 @@ import Title from "../Title";
 import Button from "../Button";
 import FormGroup from "./FormGroup";
 
-export default function RegistrationForm({ handleCancel, showLogin }) {
+export default function RegistrationForm({
+  handleCancel,
+  showLogin,
+  registered,
+}) {
   // States
 
   const [registration, setRegistration] = useState({
@@ -23,7 +27,40 @@ export default function RegistrationForm({ handleCancel, showLogin }) {
     setRegistration({ ...registration, [e.target.name]: e.target.value });
   };
 
-  const handleRegistration = () => {};
+  const handleRegistration = (e) => {
+    e.preventDefault();
+    const events = {
+      id: Math.floor(Math.random() * 1000),
+      fullName: registration.fullName,
+      email: registration.email,
+      password: registration.password,
+      passwordConf: registration.passwordConf,
+    };
+    const validateRegistrationForm = (obj) => {
+      console.log(obj);
+      if (
+        Object.values(obj).every(
+          (value) => value || (typeof value === "number" && value === 0)
+        )
+      ) {
+        resetForm();
+        alert("Success!");
+        showLogin();
+      } else {
+        alert("Complete all fields!");
+      }
+    };
+    validateRegistrationForm(events);
+  };
+
+  const resetForm = () => {
+    setRegistration({
+      fullName: "",
+      email: "",
+      password: "",
+      passwordConf: "",
+    });
+  };
 
   // Effects
 
@@ -81,7 +118,7 @@ export default function RegistrationForm({ handleCancel, showLogin }) {
           classes={"btn-primary"}
           type={"submit"}
           text={"Register"}
-          onClick={() => alert("Registered")}
+          onClick={handleRegistration}
         />
         <Button
           type={"botton"}
