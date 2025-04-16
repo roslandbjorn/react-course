@@ -18,6 +18,7 @@ import TestemonialCard from "./components/page-components/TestimonialCard";
 import TestimonialsList from "./components/Lists/TestimonialsList";
 import LoginForm from "./components/page-components/LoginForm";
 import RegistrationForm from "./components/page-components/RegistrationForm";
+import ThrowError from "./Examples/ThrowError";
 
 const offerList = [
   {
@@ -233,6 +234,7 @@ function App() {
           )}
         </main>
       </div>
+      <ThrowError />
     </>
   );
 }
