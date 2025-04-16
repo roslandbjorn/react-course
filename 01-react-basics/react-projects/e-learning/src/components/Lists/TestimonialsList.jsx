@@ -4,14 +4,27 @@ import { useEffect, useState } from "react";
 
 import testimonialsData from "../../db/tesimonials.json";
 import TestemonialCard from "../page-components/TestimonialCard";
+import Button from "../Button";
 
 export default function TestimonialsList() {
   // Functions
   const getLocalData = () => {
     setIsLoading(true);
+
+    // Simulate random error
+    function getRandomInt() {
+      return Math.floor(Math.random() * 4);
+    }
+
     setTimeout(() => {
       parsedData = JSON.parse(localStorage.getItem("testimonialData"));
-      setData(parsedData);
+      // setData(parsedData);
+      if (getRandomInt() === 0) {
+        setHasError(true);
+        setError(new Error("Random error"));
+      } else {
+        setData(parsedData);
+      }
       setIsLoading(false);
     }, 2000);
   };
@@ -24,6 +37,8 @@ export default function TestimonialsList() {
 
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+  const [error, setError] = useState(null);
 
   let parsedData;
   const fetchData = async () => {
@@ -32,6 +47,8 @@ export default function TestimonialsList() {
       getLocalData();
     } catch (error) {
       console.log(error);
+      setHasError(true);
+      setError(error);
       setIsLoading(false);
     }
   };
@@ -47,6 +64,17 @@ export default function TestimonialsList() {
     return (
       <>
         <div className="alert alert-warning">Loading ...</div>
+      </>
+    );
+  }
+
+  if (hasError) {
+    return (
+      <>
+        <div className="alert alert-danger">
+          <p className="mr-1">Something went wrong {error.message}</p>
+          <Button text={"Try again"} onClick={getLocalData} />
+        </div>
       </>
     );
   }
