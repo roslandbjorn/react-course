@@ -7,6 +7,7 @@ export default function FormGroup({
   value,
   onChange,
   reference,
+  name,
   disabled = false,
 }) {
   return (
@@ -20,6 +21,7 @@ export default function FormGroup({
         value={value}
         onChange={onChange}
         ref={reference}
+        name={name}
       />
     </div>
   );

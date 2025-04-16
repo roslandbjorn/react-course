@@ -17,6 +17,7 @@ import { FaFileDownload, FaMapMarkedAlt } from "react-icons/fa";
 import TestemonialCard from "./components/page-components/TestimonialCard";
 import TestimonialsList from "./components/Lists/TestimonialsList";
 import LoginForm from "./components/page-components/LoginForm";
+import RegistrationForm from "./components/page-components/RegistrationForm";
 
 const offerList = [
   {
@@ -57,7 +58,10 @@ const moreOfferList = [
 function App() {
   const [showCourseModal, setShowCourceModal] = useState(false);
   const [showOffers, setShowOffers] = useState(false);
-  const [forms, setForms] = useState({ loginForm: false });
+  const [forms, setForms] = useState({
+    loginForm: false,
+    registrationForm: false,
+  });
   const [login, setLogin] = useState(false);
 
   function handleStartLearningEvent() {
@@ -73,7 +77,7 @@ function App() {
   }
 
   function handleShowLoginForm() {
-    setForms({ ...forms, loginForm: true });
+    setForms({ registrationForm: false, loginForm: true });
   }
 
   function handleCancelLoginForm() {
@@ -84,6 +88,14 @@ function App() {
     setForms({ ...forms, loginForm: false });
     setShowCourceModal(false);
     setLogin(true);
+  }
+
+  function handleShowRegistrationForm() {
+    setForms({ loginForm: false, registrationForm: true });
+  }
+
+  function handleCancelRegistrationForm() {
+    setForms({ ...forms, registrationForm: false });
   }
 
   return (
@@ -204,6 +216,17 @@ function App() {
                 <LoginForm
                   handleCancel={handleCancelLoginForm}
                   loggedIn={handleLoginFormValidation}
+                  showRegister={handleShowRegistrationForm}
+                />
+              </div>
+            </div>
+          )}
+          {forms.registrationForm && (
+            <div className="modal">
+              <div className=" modal-content fadeIn-2ms">
+                <RegistrationForm
+                  handleCancel={handleCancelRegistrationForm}
+                  showLogin={handleShowLoginForm}
                 />
               </div>
             </div>

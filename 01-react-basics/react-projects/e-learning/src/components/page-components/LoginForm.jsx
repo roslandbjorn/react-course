@@ -3,7 +3,7 @@ import Title from "../Title";
 import Button from "../Button";
 import FormGroup from "./FormGroup";
 
-export default function LoginForm({ handleCancel, loggedIn }) {
+export default function LoginForm({ handleCancel, loggedIn, showRegister }) {
   // States
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -72,15 +72,15 @@ export default function LoginForm({ handleCancel, loggedIn }) {
         <div className="d-flex space-between">
           <Button
             classes={"btn-primary"}
-            type={"button"}
+            type={"submit"}
             text={"Login"}
             onClick={handleSubmit}
           />
           <Button
             classes={"btn-secondary"}
             type={"button"}
-            text={"Cancel"}
-            onClick={handleCancel}
+            text={"Register"}
+            onClick={showRegister}
           />
         </div>
       </form>
